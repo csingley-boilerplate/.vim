@@ -6,7 +6,7 @@ set encoding=utf-8
 set history=100 " Store this much command line history
 set clipboard=unnamedplus " Use the X clipboard as a cut/paste register
 set backspace=indent,eol,start " backspace over everything in insert mode
-" set autochdir " Working directory is always the same as buffer being edited
+set autochdir " Working directory is always the same as buffer being edited
 filetype plugin on " Load filetype plugins
 
 
@@ -119,6 +119,13 @@ set showmatch " Show matching brackets (),{},[]
 set mat=5 " Show matching brackets for 0.5 seconds
 set foldmethod=indent " Code folding
 set foldlevel=99 " Code folding
+
+" Show trailing characters and undesirable spaces
+set list
+set listchars=tab:▸\ ,trail:·,nbsp:~
+
+" Remove trailing spaces when save buffer
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
